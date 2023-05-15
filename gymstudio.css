@@ -1,0 +1,142 @@
+.page1{
+    background-color: #232d39cc;
+    height: 100vh;
+    width: 100%;
+    
+    
+}
+
+.backgroundvid1{
+    position: absolute;
+    z-index: -1;
+    background-size: contain;
+    right: 0;
+    bottom: 0;
+}
+
+.header1{
+    background-color: gray;opacity: .8;
+    height: 10vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.header1font1{
+    position: relative;
+    left: 170px;
+      
+}
+
+.header1font2{
+    position: relative;
+    display: flex;
+    font-size: 17px;
+    gap: 30px;
+    bottom: 70px;
+    left: 650px;
+
+}
+
+.signupbutton1{
+    position: relative;
+    bottom: 127px;
+    font-size: 17px;
+    left: 1200px;
+    z-index: 2;
+    
+}
+
+.page1maindiv{
+    position: relative;
+    top: 250px;
+    left: 300px;
+    color: white;
+    word-spacing: 5px;
+}
+
+.workharder{
+    position: relative;
+    left: 200px;
+    
+}
+
+.page1downbutton{
+    position: relative;
+    top: 250px;
+    left: 530px;
+}
+
+.page2{
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    justify-content: center;
+    
+}
+
+.page2header1{
+    position: relative;
+    left: 600px;
+}
+
+.pg2symbolsection{
+    position: relative;
+    left: 100px;
+}
+
+.page2headertextarea{
+    position: relative;
+    right: 130px;
+}
+
+.page2headertextareai{
+    position: relative;
+    left: 150px;
+}
+
+.page2flexcontent1{
+    position: relative;
+    display: flex;
+    left: 50px;
+    top: 150px;
+}
+
+.flexcontenttextarea{
+    position: relative;
+    left: 125px;
+    bottom: 120px;
+}
+
+.page2txtareaii{
+    position: relative;
+    left: 750px;
+    bottom: 250px;
+}
+
+.page2txtareaiii{
+    position: relative;
+    left: 0px;
+    bottom: 320px;
+}
+
+.page2txtareaiiii{
+    position: relative;
+    left: 750px;
+    bottom: 550px;
+}
+
+.page2txtareaiiiii{
+    position: relative;
+    left: 100;
+    bottom: 640px;
+
+}
+
+.page2txtareaiiiiii{
+    position: relative;
+    left: 750px;
+    bottom: 865px;
+
+}
+
