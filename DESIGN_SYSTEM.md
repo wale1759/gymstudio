@@ -1,67 +1,53 @@
-# Gym Studio Design System
-
-This document records the current visual design and provides guidance for future changes. Suggested improvements below are not yet implemented in the HTML or CSS.
+﻿# Training Studio Design System
 
 ## Visual direction
 
-Use a bold fitness aesthetic: a dark video hero, white text, orange emphasis, and a white program section. Keep headings prominent and calls to action easy to identify.
+An editorial fitness studio with warm stone backgrounds and light ivory surfaces, forest-green sections, restrained terracotta accents, and expressive serif headlines. Photography and generous spacing lead the design. Small uppercase labels provide structure without competing with headings.
 
-## Colors
+## Tokens
 
-| Role | Current value | Usage |
+Change these variables in `public/css/styles.css` to update the theme.
+
+| Variable | Value | Purpose |
 | --- | --- | --- |
-| Accent | `orangered` / `#ff4500` | Brand emphasis, buttons, active Home label, Discover More text |
-| Hero overlay | `#232d39cc` | Dark blue-gray with 80% alpha over the hero |
-| Light surface | `#ffffff` | Program section and hero text |
-| Dark text | `#000000` | Program content |
-| Header | `gray` / `#808080` | Header background; the header currently has `opacity: .8` |
+| `--accent` | `#b34a2d` | Terracotta buttons, labels, and emphasis |
+| `--accent-light` | `#efab8b` | Emphasis on dark surfaces |
+| `--ink` | `#202823` | Forest-green text, active filters, and membership background |
+| `--muted` | `#6c716a` | Supporting text |
+| `--paper` | `#e8e4db` | Warm stone page background |
+| `--soft` | `#ddd8cd` | Deeper stone secondary sections |
+| `--surface` | `#f5f1e9` | Light ivory coaching cards, badges, and enquiry panel |
+| `--line` | `#ccc6ba` | Dividers and borders |
+| `--container` | `1200px` | Maximum content width |
+| `--serif` | Georgia, Times New Roman, serif | Editorial display typography |
 
-Header opacity currently also affects its children. For future changes, use an alpha background color if only the background should be translucent. Check text contrast when using orange on white, especially for small text.
+The timetable uses a pale sage surface. White-on-terracotta actions darken on hover. Recheck contrast when changing colors.
 
-## Typography
+## Typography and composition
 
-No font family is declared, so the browser default applies.
+Headlines use local serif fonts with fluid sizes and italic emphasis. Body text uses Segoe UI with Arial and sans-serif fallbacks; no external fonts or build tools are needed. Body line height is 1.7. Eyebrows use small uppercase letters with generous tracking.
 
-| Element | Current styling |
-| --- | --- |
-| Hero title | `70px`, bold heading, uppercase |
-| Brand | `30px`, weight `900`, uppercase |
-| Section title | Bold heading; section header declares weight `900` |
-| Program title | `20px`, weight `700` |
-| Intro copy | `20px` |
-| Navigation and sign-up | `17px` |
-| Primary membership action | `20px`, weight `800` |
-
-Keep orange emphasis to key words. For future cleanup, use a consistent font stack and move inline typography styles into CSS classes.
-
-## Layout and spacing
-
-The hero and program sections each use `100vh` height and full width. The existing layout relies on relative and absolute positioning with large pixel offsets. Navigation uses a `30px` gap, and programs visually form two columns.
-
-For future responsive work:
-
-- Use a centered container with consistent horizontal padding.
-- Use Flexbox for the header and CSS Grid for program cards.
-- Stack program cards on narrow screens and allow sections to grow with their content.
-- Start with a spacing scale of `4`, `8`, `16`, `24`, `32`, `48`, and `64px`; this is a proposed scale, not an existing token system.
-- Scale the hero heading down on smaller screens.
+Desktop sections use 115px vertical spacing and a centered 1200px container with 40px side margins. Mobile uses 72px section spacing and 20px side margins. Three-column collections, split image/content layouts, and fine dividers establish rhythm.
 
 ## Components
 
-| Component | Current treatment |
-| --- | --- |
-| Header | Training Studio wordmark, uppercase navigation labels, orange sign-up button |
-| Hero | Looping muted video, dark overlay, tagline, large title, membership button |
-| Primary button | Orange background and border with bold white uppercase text |
-| Section heading | Centered visual treatment, orange keyword, decorative divider image, intro copy |
-| Program item | `100 × 100px` icon, bold title, description, orange Discover More label |
+- Sticky header: compact wordmark, thin current-section underline, and mobile menu.
+- Hero: full-bleed photograph with a forest overlay, serif title, ivory action, and a desktop editorial annotation.
+- Value strip: three quiet numbered statements on a warm neutral surface.
+- Programs: category badges over muted photographs, subtle image hover, and independent filters.
+- Approach: framed photograph, gradient-backed caption, and a numbered introduction.
+- Schedule: day filters, semantic table, alternating rows, and empty-state feedback. Times remain examples.
+- Coaches: portrait-led profiles with fine dividers; profile content remains illustrative.
+- Membership: connected dark panels with a sage featured plan and warm neutral actions.
+- FAQ: native keyboard-accessible disclosure elements.
+- Enquiry: bordered warm-neutral panel and understated form controls. The builder prepares copyable text; no messages are sent.
 
-The membership button is `250 × 60px`; the sign-up button is `130 × 50px`. Buttons currently have no custom hover, focus, loading, or disabled states. Navigation and Discover More labels are not links yet.
+## Responsive and accessibility behavior
 
-## Interaction and accessibility guidance
+At 1050px, navigation and split layouts become more compact. At 760px, the menu collapses, split layouts stack, and program/membership cards use one column. Coaching uses two columns, then one at 420px. The timetable scrolls horizontally in its labeled region.
 
-When implementing interactions, use links for navigation and buttons for actions. Add visible keyboard focus styles and meaningful destinations. Give informative images useful alt text and decorative images empty alt text. Keep heading levels sequential, ensure text contrast, and provide a reduced-motion alternative for the background video.
+Keep semantic HTML, image descriptions, visible focus, native disclosures, status announcements, and reduced-motion support. Content stays visible without animation or JavaScript; filters, mobile navigation, and the enquiry builder require JavaScript. Preserve `aria-pressed` and `aria-current` behavior when extending the page.
 
-## Asset references
+## Maintenance
 
-The HTML expects `gym-video.mp4`, `line-dec.png`, and `features-first-icon.png` under `/asset/project/`. These assets are not included in the repository. Use media you have permission to publish and update paths when organizing assets.
+Keep content in `index.html`, visual rules in `public/css/styles.css`, and behavior in `public/js/main.js`. The stylesheet is organized by component with responsive rules at the end. Local photographs remain in `public/images/`. Edit `data-category`, `data-day`, and `data-plan` values together with their matching controls when adding content.

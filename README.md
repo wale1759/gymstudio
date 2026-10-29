@@ -1,43 +1,65 @@
-# Gym Studio
+﻿# Training Studio
 
-A static fitness landing page built with HTML and CSS. It features a video hero, Training Studio branding, membership calls to action, and a six-item exercise program section.
+A responsive gym landing page built with HTML, CSS, and vanilla JavaScript. No framework, package installation, or build step is required.
 
-## Project files
+## Preview
+
+Open `index.html` in a browser, or open it with VS Code Live Server. All images load from `./public/images/`, so keep that folder alongside the page. Clipboard copying works best through localhost or HTTPS; a manual selection fallback is provided.
+
+## Files
 
 | File | Purpose |
 | --- | --- |
-| `gymstudio.html` | Page content and structure |
-| `gymstudio.css` | Layout and styling, alongside inline styles in the HTML |
-| `DESIGN_SYSTEM.md` | Visual foundations and component guidance |
-| `.gitignore` | Local files excluded from Git |
+| `index.html` | Page content, program cards, coaching profiles, and membership options |
+| `public/css/styles.css` | Design variables, components, and responsive layouts |
+| `public/js/main.js` | Mobile navigation, program filtering, membership selection, and enquiry builder |
+| `public/images/` | Local photographs and graphics |
+| `DESIGN_SYSTEM.md` | Visual conventions and maintenance guidance |
 
-## Preview locally
+## Maintain the page
 
-There is no build step or package installation. Open `gymstudio.html` in a browser, or use VS Code's Live Server extension to serve the project folder.
+- Change copy and images directly in the HTML. Keep descriptive image alt text.
+- Add a program by copying an article inside `#programs .grid` and setting `data-category` to an existing filter value. Add a matching `data-filter` button if introducing a category.
+- Update global colors and content width in the CSS `:root` variables. CSS sections are grouped by purpose; media queries are at the end.
+- Membership links use `data-plan`; keep each value identical to its corresponding enquiry select option.
+- Replace illustrative coaching profiles and membership options with verified studio details before launch. No prices, location, opening hours, or coach identities have been supplied.
+- The enquiry builder only prepares text for copying. It does not send, store, or register enquiries. Connect a real contact service or add verified contact details before using it for customer enquiries.
 
-The current HTML references resources at these server-root paths:
+## Verification
 
-- `/asset/gymstudio/gymstudio.css`
-- `/asset/project/gym-video.mp4`
-- `/asset/project/line-dec.png`
-- `/asset/project/features-first-icon.png`
+Check desktop and mobile layouts, keyboard navigation, the mobile menu, every program filter, membership selection, and enquiry generation/copying. JavaScript syntax can be checked with `node --check public/js/main.js` when Node is available.
 
-The media files are not included in this repository. For a standalone preview, change the stylesheet link to `./gymstudio.css`, add your media files, and update the media paths to their locations. Alternatively, serve the project within a site that provides the existing `/asset/` paths. Until those paths resolve, styling or media may be missing.
+## Sharing changes
 
-## Make changes
-
-1. Edit `gymstudio.html` for text and structure.
-2. Edit `gymstudio.css` and relevant inline styles for appearance.
-3. Save and refresh the browser.
-4. Check desktop and narrow screen sizes, stylesheet loading, and media loading.
-5. Review `git diff`, then commit and push when ready to share your changes.
-
-The current layout uses fixed offsets and needs further work for smaller screens. Navigation labels and calls to action are visual elements; registration and navigation behavior have not been implemented. There are no automated tests or deployment configuration included.
-
-## Design guidance
-
-See [the design system](DESIGN_SYSTEM.md) for the existing colors, typography, components, and guidance for future improvements.
+Review `git diff`, commit the intended files, then push to your remote repository. Saving locally does not publish the website.
 
 ## Attribution
 
-The available Git history lists Olawale as a commit author. This does not establish original authorship of all code or media. No license file is currently included.
+Available Git history lists Olawale as a commit author. This does not establish original authorship of every asset. Confirm permission to use photographs before publishing. No license file is included.
+
+## Folder structure
+
+```text
+gymstudio/
+??? index.html
+??? public/
+?   ??? css/styles.css
+?   ??? js/main.js
+?   ??? images/
+??? README.md
+??? DESIGN_SYSTEM.md
+??? .gitignore
+??? .gitattributes
+```
+
+## Schedule, FAQs, and navigation
+
+- Edit the weekly schedule directly in the table in `index.html`. Every row has a `data-class-day` matching a day filter. Sunday demonstrates the empty state. The Full week option shows every listed class. All times are illustrative; replace them with verified studio times.
+- Add FAQ items using native `<details>` and `<summary>` elements inside `.faq-list`. These work with a keyboard and without JavaScript.
+- Navigation highlights the current section as you scroll. For a new navigable section, add its ID and a matching header link; the script discovers these automatically.
+- The header stays visible while scrolling, and section anchors account for its height.
+- The old root-level HTML, CSS, and JS filenames have moved. Open `index.html` with Live Server; update old bookmarks or deployment entry paths accordingly.
+
+## Visual style
+
+The site uses an editorial warm-stone, forest-green, and terracotta theme with lighter ivory card surfaces with local serif headlines, muted photography, responsive layouts, and reduced-motion support. Theme variables and component rules live in public/css/styles.css; see DESIGN_SYSTEM.md for the current visual conventions. No external font dependency is required.
